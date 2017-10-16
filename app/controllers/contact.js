@@ -2,23 +2,9 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
 
-    isValid: Ember.computed.match('emailAddress', /^.+@.+\..+$/),
-    isMessageLongEnough: Ember.computed.gte('message.length', 5),
+    isValid: Ember.computed.match('model.email', /^.+@.+\..+$/),
+    isMessageLongEnough: Ember.computed.gte('model.message.length', 5),
     //computes both properties for validation
-    isBothValid: Ember.computed.and('isValid', 'isMessageLongEnough'),
+    isBothValid: Ember.computed.and('isValid', 'isMessageLongEnough')
 
-    actions: {
-        sendMessage: function(){
-            let email = this.get('emailAddress');
-            let message = this.get('message');
-
-            
-
-            let responseMessage = 'To: ' + email + ', Message: ' + message;
-            this.set('responseMessage', responseMessage);
-            this.set('emailAddress', '');
-            this.set('message', '');
-
-        }
-    }
 });
