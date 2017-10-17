@@ -10,7 +10,10 @@
       <p>Phone: {{library.phone}}</p>
     </div>
     <div class="panel-footer text-right">
+        <!-- EDIT FUNCTIONALITY PASSING ID -->
         {{#link-to 'libraries.edit' library.id class="btn btn-success btn-xs"}}Edit{{/link-to}}
+
+        <!-- DELETE FUNCTIONALITY FOR LIBRARY -->
         <button type="button" name="button" class="btn btn-danger btn-xs" {{action 'deleteLibrary' library}}>Delete</button>
     </div>
   </div>
